@@ -4,3 +4,5 @@
 !*.pdf
 !amplituhedron
 !amplituhedron/acpms-logo.svg
+!stone-weierstrass/
+!stone-weierstrass/*

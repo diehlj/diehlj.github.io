@@ -1,0 +1,749 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>The Stone-Weierstraß theorem &#8212; Stone-Weierstrass theorem</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'stone-weierstrass';</script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Stone-Weierstrass theorem</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/stone-weierstrass.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Stone-Weierstraß theorem</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-stone-weierstrasz-theorem">
+<h1>The Stone-Weierstraß theorem<a class="headerlink" href="#the-stone-weierstrasz-theorem" title="Permalink to this heading">#</a></h1>
+<p>( Part of the ‘23 lecture <a class="reference external" href="https://github.com/diehlj/2023-building-blocks-lecture">Building Blocks of Modern Machine Learning: (Self-)Attention and Diffusion Models</a>. )</p>
+<div class="proof theorem admonition" id="stone-weierstr">
+<span id="index-0"></span><p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Stone-Weierstraß)</p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(K \subset \mathbb R^d\)</span> be a compact set.
+Consider the <span class="math notranslate nohighlight">\(\mathbb R\)</span>-algebra <span class="math notranslate nohighlight">\(C(K,\mathbb R)\)</span> of continuous,
+real-valued functions on it.
+Let <span class="math notranslate nohighlight">\(\mathcal A \subset C(K,\mathbb R)\)</span> be a subalgebra, satisfying</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal A\)</span> contains the constant function <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal A\)</span> separates points, that is, for every <span class="math notranslate nohighlight">\(x,y \in K\)</span>, <span class="math notranslate nohighlight">\(x\not= y\)</span>
+there exists <span class="math notranslate nohighlight">\(\phi \in \mathcal A\)</span> such that</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[  \phi(x) \not= \phi(y).\]</div>
+<p>Then: <span class="math notranslate nohighlight">\(\mathcal A\)</span> is dense in <span class="math notranslate nohighlight">\(C(K,\mathbb R)\)</span> with respect
+to the supremum norm</p>
+<div class="math notranslate nohighlight">
+\[  ||f||_\infty := \sup_{z\in K} |f(z)|.\]</div>
+<p>That is, for every <span class="math notranslate nohighlight">\(f \in C(K,\mathbb R)\)</span>, every <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span>
+there exists a <span class="math notranslate nohighlight">\(g \in \mathcal A\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[  ||f-g||_\infty &lt; \epsilon.\]</div>
+</section>
+</div><p>We will follow the beautiful proof of
+<span id="id1">[<a class="reference internal" href="#id35" title="Bruno Brosowski and Frank Deutsch. An elementary proof of the stone-weierstrass theorem. Proceedings of the American Mathematical Society, 81(1):89–92, 1981.">BD81</a>]</span>.
+A key ingredient is the following inequality.</p>
+<div class="proof lemma admonition" id="lemma-1">
+<p class="admonition-title"><span class="caption-number">Lemma 1 </span> (Bernoulli’s inequality)</p>
+<section class="lemma-content" id="proof-content">
+<p>For <span class="math notranslate nohighlight">\(z \ge -1\)</span> and <span class="math notranslate nohighlight">\(m \in \mathbb N_{\ge 1}\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[  (1+z)^m \ge 1 + mz.\]</div>
+</section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For <span class="math notranslate nohighlight">\(z \ge 0\)</span> the inequality follows from</p>
+<div class="math notranslate nohighlight">
+\[  (1+z)^m = \sum_{k=0}^m \binom{m}{k} z^k = 1 + mz + \text{ non-negative terms }.\]</div>
+<p class="sd-card-text">For <span class="math notranslate nohighlight">\(z=-1\)</span> the inequality reads as</p>
+<div class="math notranslate nohighlight">
+\[  0 \ge 1 - m,\]</div>
+<p class="sd-card-text">which is true for <span class="math notranslate nohighlight">\(m \ge 1\)</span>.
+To prove the inequality on <span class="math notranslate nohighlight">\([-1,0]\)</span> it is now sufficient
+to show that the derivative of</p>
+<div class="math notranslate nohighlight">
+\[  (1+z)^m - 1 - mz,\]</div>
+<p class="sd-card-text">does not change sign on <span class="math notranslate nohighlight">\([-1,0]\)</span>. And, indeed</p>
+<div class="math notranslate nohighlight">
+\[  \frac{d}{dz} \dots = m (1+z)^{m-1} - m \le 0 \quad z \in [-1,0]. \]</div>
+</div>
+</details><p>Using this lemma we can show that, on <span class="math notranslate nohighlight">\([0,1]\)</span>,
+we can approximate a certain step-function
+arbitrarily close by a polynomial.</p>
+<div class="proof lemma admonition" id="onedimpoly">
+<p class="admonition-title"><span class="caption-number">Lemma 2 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>Given <span class="math notranslate nohighlight">\(\delta \in (0,1)\)</span>, <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span>, there exists a
+polynomial <span class="math notranslate nohighlight">\(\Phi\)</span> in one variable such that</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\Phi(y) \in [0,1]\)</span> for <span class="math notranslate nohighlight">\(y \in [0,1]\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Phi(y) \in [1-\epsilon,1]\)</span> for <span class="math notranslate nohighlight">\(y \in [0,\frac\delta2]\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Phi(y) \in [0,\epsilon]\)</span> for <span class="math notranslate nohighlight">\(y \in [\delta,1]\)</span>.</p></li>
+</ol>
+</section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Pick <span class="math notranslate nohighlight">\(k \in \mathbb N_{\ge 1}\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[  1 &lt; k\delta &lt; 2.\]</div>
+<figure class="align-right">
+<a class="reference internal image-reference" href="_images/stone_weierstrass_lemma.gif"><img alt="_images/stone_weierstrass_lemma.gif" src="_images/stone_weierstrass_lemma.gif" style="width: 350.0px; height: 250.0px;" /></a>
+</figure>
+<p class="sd-card-text">Given <span class="math notranslate nohighlight">\(m \in \mathbb N_{\ge 1}\)</span> define</p>
+<div class="math notranslate nohighlight">
+\[  \Phi_m(y) := (1-y^m)^{k^m}.\]</div>
+<p class="sd-card-text">Then</p>
+<div class="math notranslate nohighlight">
+\[  \Phi_m(y) \in [0,1] \quad \forall y \in [0,1].\]</div>
+<p class="sd-card-text">Further, for <span class="math notranslate nohighlight">\(y \in [0,\frac\delta2]\)</span>
+and using Bernoulli’s inequality</p>
+<div class="math notranslate nohighlight">
+\[  \Phi_m(y) \ge 1 - k^m x^m &gt; 1 - \left(\frac{k\delta}2\right)^m.\]</div>
+<p class="sd-card-text">We observe that since <span class="math notranslate nohighlight">\(k\delta/2 &lt; 1\)</span>, this tends to <span class="math notranslate nohighlight">\(1\)</span>
+(independent of <span class="math notranslate nohighlight">\(y \in [0,\frac\delta2]\)</span>).</p>
+<p class="sd-card-text">For <span class="math notranslate nohighlight">\(y \in [\delta,1]\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  \Phi_m(y)
+  &amp;= \frac{1}{k^m x^m} (1-y^m)^{k^m} k^m x^m \\
+  &amp;\le \frac{1}{k^m x^m} (1-y^m)^{k^m} (1 + k^m x^m) \\
+  &amp;= \frac{1}{k^m x^m} (1-y^{2m})^{k^m} \\
+  &amp;\le \frac{1}{k^m x^m} \\
+  &amp;\le \frac{1}{(k\delta)^m} \\
+\end{align*}\]</div>
+<p class="sd-card-text">Here we used Bernoulli’s inequality for the second line.
+We observe that since <span class="math notranslate nohighlight">\(k\delta &gt; 1\)</span>, this tends to <span class="math notranslate nohighlight">\(0\)</span>
+(independent of <span class="math notranslate nohighlight">\(y \in [\delta,1]\)</span>).</p>
+<p class="sd-card-text">Together, we see that we can choose <span class="math notranslate nohighlight">\(m\)</span> large enough such
+that <span class="math notranslate nohighlight">\(\Phi := \Phi_m\)</span> satisfies the required bounds.</p>
+</div>
+</details><div class="proof lemma admonition" id="lem:neighborhood">
+<p class="admonition-title"><span class="caption-number">Lemma 3 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>Under the assumptions of the theorem,
+for every point <span class="math notranslate nohighlight">\(x_0 \in K\)</span>, every open neighborhood <span class="math notranslate nohighlight">\(U \subset K\)</span>
+of <span class="math notranslate nohighlight">\(x_0\)</span>
+there is a smaller neighborhood <span class="math notranslate nohighlight">\(U' \subset U\)</span> of <span class="math notranslate nohighlight">\(x_0\)</span>
+such that for
+every <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span>
+there is a <span class="math notranslate nohighlight">\(\phi \in \mathcal A\)</span> with</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  0 \le \phi &amp;\le 1 \\
+  \sup_{z \in U'} |1 - \phi(z)| &amp;&lt; \epsilon \\
+  \sup_{z \in K \setminus U} |0 - \phi(z)| &amp;&lt; \epsilon.
+\end{align*}\]</div>
+</section>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For every <span class="math notranslate nohighlight">\(x \in K\)</span> there is <span class="math notranslate nohighlight">\(\psi_x \in \mathcal A\)</span>
+with</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \psi_x(x) \not= \psi_x(x_0).
+  \end{align*}\]</div>
+<p class="sd-card-text">Define <span class="math notranslate nohighlight">\(\psi_x' := \psi_x - \psi_x(x_0) \in \mathcal A\)</span>.
+Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \psi'_x(x) \not= 0 = \psi'_x(x_0).
+  \end{align*}\]</div>
+<p class="sd-card-text">Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \psi''_x := \frac{1}{||\psi_x'||^2} (\psi'_x)^2.
+  \end{align*}\]</div>
+<p class="sd-card-text">Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    &amp;0 \le \psi''_x \le 1 \\
+    &amp;\psi''_x(x_0) = 0\\
+    &amp;\psi''_x(x) &gt; 0.
+  \end{align*}\]</div>
+<p class="sd-card-text">Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    V_x := \{ z \in K : \psi''_x(z) &gt; 0 \}.
+  \end{align*}\]</div>
+<p class="sd-card-text">Then <span class="math notranslate nohighlight">\(V_x\)</span> is an open neighborhood of <span class="math notranslate nohighlight">\(x\)</span>.
+Hence</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \bigcap_{x\in K\setminus U} V_x \supset K\setminus U.
+  \end{align*}\]</div>
+<p class="sd-card-text">Seince <span class="math notranslate nohighlight">\(K\setminus U\)</span> is compact, there exists a finite
+family of points <span class="math notranslate nohighlight">\(x_1, \dots, x_n \in K\)</span>
+with</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \bigcap_{i=1}^n V_{x_i} \supset K\setminus U.
+  \end{align*}\]</div>
+<p class="sd-card-text">Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    p := \frac1n \sum_{i=1}^n \psi''_{x_i}.
+  \end{align*}\]</div>
+<p class="sd-card-text">Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    &amp;0 \le p \le 1 \\
+    &amp;p(x_0) = 0\\
+    &amp;p(y) &gt; 0 \qquad y \in K\setminus U.
+  \end{align*}\]</div>
+<p class="sd-card-text">Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    &amp;0 \le p \le 1 \\
+    &amp;p(x_0) = 0\\
+    &amp;p(y) &gt; 0 \qquad y \in K\setminus U.
+  \end{align*}\]</div>
+<p class="sd-card-text">By compactness of <span class="math notranslate nohighlight">\(K\setminus U\)</span> there
+is a <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    p(y) &gt; \delta \qquad y \in K\setminus U.
+  \end{align*}\]</div>
+<p class="sd-card-text">Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    U' := \{ y \in K : p(y) &lt; \delta/2 \}.
+  \end{align*}\]</div>
+<p class="sd-card-text">Then <span class="math notranslate nohighlight">\(U' \subset U\)</span>
+and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    &amp;0 \le p(y) &lt; \delta/2 \text{ on } U' \\
+    &amp;\delta \le p(y) \le 1 \text{ on } K\setminus U.
+  \end{align*}\]</div>
+<p class="sd-card-text">Using <a class="reference internal" href="#onedimpoly">Lemma 2</a>,
+there is a Polynomial <span class="math notranslate nohighlight">\(\Phi\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \Phi(p) &amp; \in [0,1] \text{ on } K \\
+    \Phi(p) &amp;\in [1-\epsilon,1] \text{ on } U' \\
+    \Phi(p) &amp;\in [0,\epsilon \text{ on } K\setminus U.
+  \end{align*}\]</div>
+<p class="sd-card-text">Hence, <span class="math notranslate nohighlight">\(\phi := \Phi(p) \in \mathcal A\)</span> does the job.</p>
+</div>
+</details><p>We can now prove the theorem.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof of Stone-Weierstraß.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Claim:</strong> for all closed subsets <span class="math notranslate nohighlight">\(A,B \subset K\)</span>, <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>,
+for every <span class="math notranslate nohighlight">\(0&lt; \epsilon &lt;1\)</span> there is <span class="math notranslate nohighlight">\(\phi \in \mathcal A\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  0 &amp;\le \phi \le 1 \\
+  0 &amp;\le \phi &lt; \epsilon, \text{ on } A \\
+  1-\epsilon &amp;\le \phi \le 1, \text{ on } B.
+\end{align*}\]</div>
+<p class="sd-card-text">Indeed, let <span class="math notranslate nohighlight">\(U := K \setminus B\)</span>.
+For <span class="math notranslate nohighlight">\(x \in A\)</span> consider the neighborhood <span class="math notranslate nohighlight">\(U' = U'_x\)</span> of <span class="math notranslate nohighlight">\(x\)</span> (<a class="reference internal" href="#lem:neighborhood">Lemma 3</a>).
+Since <span class="math notranslate nohighlight">\(A\)</span> is compact, there exist <span class="math notranslate nohighlight">\(x_1, \dots, x_m \in A\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  A \subset \bigcup_{i=1}^m U'_{x_i}.
+\end{align*}\]</div>
+<p class="sd-card-text">By the choice of <span class="math notranslate nohighlight">\(U'_{x_i}\)</span> ther exists <span class="math notranslate nohighlight">\(\phi_i \in \mathcal A\)</span>
+such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  0 \le \phi_i &amp;\le 1 \\
+  \sup_{z \in U'_{x_i}} |1 - \phi_i(z)| &amp;&lt; \epsilon/m \\
+  \sup_{z \in K \setminus U'_{x_i}} |0 - \phi_i(z)| &amp;&lt; \epsilon/m.
+\end{align*}\]</div>
+<p class="sd-card-text">Define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  \phi := (1-\phi_1) \cdot \dots \cdot (1-\phi_m).
+\end{align*}\]</div>
+<p class="sd-card-text">Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  &amp;0 \le \phi \le 1 &amp;&amp; \\
+  &amp;0 \le \phi &lt; \epsilon / m &lt; \epsilon &amp;&amp; \text{ on } \bigcup_{i=1}^m U'_{x_i} \supset A \\
+  &amp;1-\epsilon \le (1-\epsilon/m)^m \le \phi \le 1 &amp;&amp; \text{ on } B.
+\end{align*}\]</div>
+<p class="sd-card-text">This proves the claim.</p>
+<p class="sd-card-text">Let now <span class="math notranslate nohighlight">\(f \in C(K,\mathbb R)\)</span> be given.
+By considering <span class="math notranslate nohighlight">\(f + ||f||_\infty\)</span> we can assume
+that <span class="math notranslate nohighlight">\(f \ge 0\)</span>.
+Let <span class="math notranslate nohighlight">\(0 &lt; \epsilon &lt; 1/3\)</span> be given.
+Choose <span class="math notranslate nohighlight">\(n \in \mathbb N_{\ge 1}\)</span> with</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  (n-1) \epsilon \ge ||f||_\infty.
+\end{align*}\]</div>
+<p class="sd-card-text">Define for <span class="math notranslate nohighlight">\(j=0,\dots,n\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  A_j &amp;:= \left\{ x \in K : f(x) \le (j-\frac13) \epsilon \right\} \\
+  B_j &amp;:= \left\{ x \in K : f(x) \ge (j+\frac13) \epsilon \right\}.
+\end{align*}\]</div>
+<p class="sd-card-text">Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  \emptyset = A_0 &amp;\subset A_1 \subset \dots \subset A_n = K \\
+              B_0 &amp;\supset B_1 \supset \dots \supset B_n = \emptyset.
+\end{align*}\]</div>
+<p class="sd-card-text">Using the claim, we can take <span class="math notranslate nohighlight">\(\phi_i \in \mathcal A\)</span> with</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  0 &amp;\le \phi_i \le 1 &amp;&amp; \\
+  0 &amp;\le \phi_i &lt; \epsilon / n &amp;&amp; \text{ on } A_j \\
+  1-\epsilon/n &amp;\le \phi_i \le 1 &amp;&amp; \text{ on } B_j.
+\end{align*}\]</div>
+<p class="sd-card-text">Set</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  g := \epsilon \sum_{i=0}^n \phi_i.
+\end{align*}\]</div>
+<p class="sd-card-text">For <span class="math notranslate nohighlight">\(x \in K\)</span> there exists a <span class="math notranslate nohighlight">\(j \in \mathbb N_{\ge 1}\)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  x \in A_j \setminus A_{j-1}.
+\end{align*}\]</div>
+<p class="sd-card-text">In particular</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  (j-\frac43)\epsilon &lt; f(x) \le (j-\frac13) \epsilon,
+\end{align*}\]</div>
+<p class="sd-card-text">and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  \phi_i(x) &lt; \epsilon/n \text{ for every } i \ge j.
+\end{align*}\]</div>
+<p class="sd-card-text">Moreover, <span class="math notranslate nohighlight">\(x \in B_i\)</span> for every <span class="math notranslate nohighlight">\(i \ge j-2\)</span> which implies</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  \phi_i(x) &gt; 1 - \epsilon/n \text{ for every } i \le j-2.
+\end{align*}\]</div>
+<p class="sd-card-text">Then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  g(x)
+  = \epsilon \sum_{i=0}^n \phi_i(x)
+  =
+  \epsilon \sum_{i=0}^{j-1} \phi_i(x)
+  +
+  \epsilon \sum_{i=j}^{n} \phi_i(x)
+  \le
+  j \epsilon + \epsilon (n-j+1) \frac\epsilon{n}
+  \le
+  j\epsilon + \epsilon^2
+  &lt;
+  (j+\frac13) \epsilon.
+\end{align*}\]</div>
+<p class="sd-card-text">If <span class="math notranslate nohighlight">\(j \ge 2\)</span>,
+then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  g(x)
+  &amp;\ge \epsilon \sum_{i=0}^{j-2} \phi_i(x)
+  \ge (j-1) \epsilon (1-\epsilon/n)
+  = (j-1) \epsilon (1-\epsilon/n)
+  - (j-1) \epsilon^2 / n \\
+  &amp;&gt; (j-1) \epsilon - \epsilon^2
+  &gt; (j-\frac43) \epsilon.
+\end{align*}\]</div>
+<p class="sd-card-text">If <span class="math notranslate nohighlight">\(j=1\)</span>, then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  g(x) &gt; (j-\frac43) \epsilon,
+\end{align*}\]</div>
+<p class="sd-card-text">is trivially true. Hence</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  |f(x)-g(x)| &lt; (j+\frac13)\epsilon - (j-\frac43)\epsilon &lt; 2 \epsilon,
+\end{align*}\]</div>
+<p class="sd-card-text">as desired.</p>
+</div>
+</details><div class="docutils container" id="id2">
+<div class="citation" id="id35" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">BD81</a><span class="fn-bracket">]</span></span>
+<p>Bruno Brosowski and Frank Deutsch. An elementary proof of the stone-weierstrass theorem. <em>Proceedings of the American Mathematical Society</em>, 81(1):89–92, 1981.</p>
+</div>
+</div>
+</div>
+<!--.. [Index](genindex) ..--></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joscha Diehl
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
