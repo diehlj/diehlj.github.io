@@ -231,7 +231,7 @@ there is a $\phi \in \mathcal A$ with
   \begin{align*}
     \Phi(p) & \in [0,1] \text{ on } K \\
     \Phi(p) &\in [1-\epsilon,1] \text{ on } U' \\
-    \Phi(p) &\in [0,\epsilon \text{ on } K\setminus U.
+    \Phi(p) &\in [0,\epsilon] \text{ on } K\setminus U.
   \end{align*}
 
   Hence, $\phi := \Phi(p) \in \mathcal A$ does the job.
