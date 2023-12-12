@@ -1,0 +1,635 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Noncommutative algebra, probability and analysis in action</title>
+    <style>
+      @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+      body {
+        font-family: 'Roboto Mono',  monospace;
+        font-size: 11pt;
+      }
+      table {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+      }
+      h2 small {
+        font-weight: normal;
+        font-size: 70%;
+      }
+      td, th {
+        padding: 0.5em;
+        text-align: center;
+      }
+      td {
+        border: 1px solid;
+      }
+      .container {
+        display: flex;
+        width: 70%;
+        margin: 0 auto;
+        flex-flow: row wrap;
+      }
+      .content {
+        width: 100%;
+      }
+      .panel {
+        flex: 1 0 100%;
+      }
+      .speakers {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+      }
+      .right {
+        margin-left: 1em;
+      }
+      .left {
+        margin-right: 1em;
+      }
+      .schedule {
+        display: flex;
+        flex-flow: column;
+        flex: 4 0 auto;
+      }
+      .logos {
+        text-align: center;
+        padding-top: 50px;
+      }
+      .logo {
+        width: 10%;
+        height: auto;
+        margin: 0 1em;
+        vertical-align: middle;
+        display: inline-block;
+      }
+      @media (max-width:1414px) {
+        .panel {
+          flex: 1 0 100%;
+        }
+        .left, .right {
+          margin: 0;
+        }
+        .logos {
+          margin: 2em 2em 2em 0;
+          order: 1;
+        }
+        .schedule {
+          order: 2
+        }
+      }
+      td.time {
+        font-weight: bold;
+      }
+      tr.break {
+        background: whitesmoke;
+      }
+      td.break {
+        text-align: center;
+        font-weight: bold;
+        background: whitesmoke;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:visited {
+        color: blue;
+      }
+      ul {
+        padding-inline-start: 0;
+      }
+      ul li {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      p {
+        white-space: pre-wrap;
+      }
+      tr.keynote > td {
+        background: linen;
+      }
+      .abstracts div:nth-child(even) {
+        background-color: whitesmoke;
+      }
+      .abstracts div {
+        padding: 0.05ex 1em;
+      }
+      .abstracts h2 {
+        margin-top: 0.3em;
+        margin-bottom: 0;
+      }
+      td.online {
+        border: 1px solid black;
+      }
+      td.online a {
+        color: green;
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Noncommutative algebra, probability and analysis in action</h1>
+        <h2>20&mdash;25 September, 2021</h2>
+        <p>The meeting will take place at the <a href="https://www.wiko-greifswald.de/programm/allgemeines/veranstaltungskalender/veranstaltung/n/non-commutative-algebra-probability-and-analysis-in-action/">Alfried Krupp Kolleg</a> in Greifswald, Germany</p>
+        <p>It will be held in a hybrid format with on-site talks and <span class="online">online talks</span>. All talks will be broadcasted using Zoom. We hope that the recent decay of infection rates in Germany will make it possible for many of you to make your way to Greifswald and participate in person.</p>
+        <p>Participants can find more information about traveling in person to Greifswald, as well as accommodation in <a href="accommodation.html">this link</a>.</p>
+        <!--<p><b>We kindly all participants to fill out the registration form (<a href="https://docs.google.com/forms/d/e/1FAIpQLScAPuSMbClHvmiK7lMqemdXFSQT-WTrJMI7g0HQkbUgMgyZFA/viewform?usp=pp_url&entry.1379134258=2021-09-19&entry.308811088=2021-09-25">link</a>).</b></p>-->
+
+        <p>We will be editing a special issue of "Symmetry, Integrability and Geometry: Methods and Applications" (SIGMA). See <a href="https://www.emis.de/journals/SIGMA/non-commutative-probability.html">here</a> for further information.</p>
+
+        <p>More information for registered participants can be found in the <a href="participants.html">password protected area</a>.</p>
+
+        <p>The PDF files for the posters can be found here: <a href="posters.zip">download</a></p>
+      </div>
+      <div class="panel speakers">
+        <div style="flex: 1 0 100%">
+        <h1>List of speakers</h1>
+        </div>
+        <div style="flex: 1 0 25%;">
+        <h3>Keynote speakers</h3>
+        <ul>
+          <li>Luigi ACCARDI</li>
+          <li>Octavio ARIZMENDI</li>
+          <li>Philippe BIANE</li>
+          <li>Peter K. FRIZ</li>
+          <li>John GOUGH</li>
+          <li>Franz LEHNER</li>
+          <li>Frédéric PATRAS</li>
+          <li>Jeffrey PENNINGTON</li>
+          <li>Michael SKEIDE</li>
+          <li>Roland SPEICHER</li>
+          <li>Anna WYSOCZAŃSKA-KULA</li>
+        </ul>
+        </div>
+        <div style="flex: 2 0 auto; margin-right: 100px;">
+        <h3 style="margin-bottom:0;">Invited speakers</h3>
+        <ul style="float: left;">
+          <li>Morgane AUSTERN</li>
+          <li>Isabelle BARAQUIN</li>
+          <li>B. V. Rajarama BHAT</li>
+          <li>Marek BOŻEJKO</li>
+          <li>Ilya CHEVYREV</li>
+          <li>Franco FAGNOLA</li>
+          <li>Zhou FAN</li>
+          <li>Franck GABRIEL</li>
+          <li>Nicolas GILLIERS</li>
+          <li>Rolf GOHM</li>
+          <li>Steven GRAY</li>
+          <li>Takahiro HASEBE</li>
+          <li>Boris HANIN</li>
+        </ul>
+        <ul style="float:right;">
+          <li>Dominik JANZING</li>
+          <li>Claus KÖSTLER</li>
+          <li>Romuald LENCZEWSKI</li>
+          <li>Wojciech MŁOTKOWSKI</li>
+          <li>Harald OBERHAUSER</li>
+          <li>Habib OUERDIANE</li>
+          <li>Amy PANG</li>
+          <li>Sergei SILVESTROV</li>
+          <li>Kaylan B. SINHA</li>
+          <li>Adam SKALSKI</li>
+          <li>Moritz WEBER</li>
+          <li>Stephen WILLS</li>
+          <li>Janusz WYSOCZA&Nacute;SKI</li>
+        </ul>
+        </div>
+        <div style="flex: 1 0 25%;">
+          <h3>Organizing Committee</h3>
+          <ul>
+            <li>Joscha DIEHL</li>
+            <li>Kurusch EBRAHIMI-FARD</li>
+            <li>Uwe FRANZ</li>
+            <li>Malte GERHOLD</li>
+            <li>Nikolas TAPIA</li>
+          </ul>
+        </div>
+      </div>
+        <div class="logos">
+          <img class="logo" src="TUB-logo.png" />
+          <img class="logo" src="WIAS-logo.jpg" />
+          <img class="logo" src="DFG-logo.jpg" />
+          <img class="logo" src="NTNU-logo.png" />
+          <img class="logo" src="UG-logo.svg" />
+          <img class="logo" src="WIKO-logo.svg" />
+        </div>
+      <div class="panel">
+        <div class="schedule" style="position: relative;" id="schedule">
+        <h1>Schedule</h1>
+        All times CEST (GMT+2)<br/>
+        <div style="display: inline-block; position: relative;"><span style="color: green; display: contents">online talk</span>, <span style="color:blue; display: contents;">live talk</span>, <div style="display: inline-block; background-color: linen; border: 1px solid black; height: 15px; width: 20px; position: absolute; top: 50%; transform: translateY(-50%);"></div><div style="display:inline-block; margin-left:2em;">keynote</div>, <div style="display: inline-block; background-color: whitesmoke; border: 1px solid black; height: 15px; width: 20px; position: absolute; top: 50%; transform: translateY(-50%);"></div><div style="display:inline-block; margin-left:2em;">break</div>, <div style="display: inline-block; background-color: lightcyan; border: 1px solid black; height: 15px; width: 20px; position: absolute; top: 50%; transform: translateY(-50%);"></div><div style="display:inline-block; margin-left:2em;">memorial lecture</div></div>
+        <table>
+          <tr>
+            <th></th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+          </tr>
+          <tr>
+            <th>08:30&ndash;08:45</th>
+            <td>Corona check</td>
+            <td colspan=5 rowspan=2></td>
+          </tr>
+          <tr>
+            <th>08:45&ndash;09:00</th>
+            <td>Opening</td>
+          </tr>
+          <tr class="keynote">
+            <th class="time">09:00&ndash;09:45</th>
+            <td class="online"><a href="#biane">Biane</a></td>
+            <td><a href="#accardi">Accardi</a></td>
+            <td><a href="#skeide">Skeide</a></td>
+            <td><a href="#skalski">Skalski</a></td>
+            <td><a href="#arizmendi">Arizmendi</a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th class="time">09:50&ndash;10:20</th>
+            <td class="online"><a href="#chevyrev">Chevyrev</a></td>
+            <td><a href="#wysoczanski">Wysoczański</a></td>
+            <td class="online"><a href="#lenczewski">Lenczewski</a></td>
+            <td class="online"><a href="#bhat">Bhat</a></td>
+            <td class="online"><a href="#sinha">Sinha</a></td>
+            <td><a href="#baraquin">Baraquin</a></td>
+          </tr>
+          <tr class="break">
+            <th class="time">10:20&ndash;11:10</td>
+            <td colspan=6 class="break">Coffee Break</td>
+          </tr>
+          <tr class="keynote">
+            <th class="time">11:10&ndash;11:55</th>
+            <td><a href="#lehner">Lehner</a></td>
+            <td class="online"><a href="#friz">Friz</a></td>
+            <td><a href="#speicher">Speicher</a></td>
+            <td><a href="#patras">Patras</a></td>
+            <td><a href="#wysoczanska-kula">Wysoczańska-Kula</a></td>
+            <td class="online"><a href="#gough">Gough</a></td>
+          </tr>
+          <tr>
+            <th class="time">12:00&ndash;12:30</th>
+            <td class="online"><a href="#hasebe">Hasebe</a></td>
+            <td class="online"><a href="#wills">Wills</a></td>
+            <td style="background: lightcyan;"><a href="#schuermann">Schürmann</a></td>
+            <td><a href="#koestler">Köstler</a></td>
+            <td class="online"><a href="#fagnola">Fagnola</a></td>
+            <td class="online"><a href="#gohm">Gohm</a></td>
+          </tr>
+          <tr>
+            <th class="time">12:30&ndash;13:00</th>
+            <td colspan=5 rowspan=2 class="break">Lunch</td>
+            <td class="online"><a href="#bozejko">Bożejko</a></td>
+          </tr>
+          <tr class="break">
+            <th class="time">13:00&ndash;14:00</th>
+            <td style="background:white" rowspan=8></td>
+          </tr>
+          <tr>
+            <th class="time">14:00&ndash;14:30</th>
+            <td></td>
+            <td class="online"><a href="#pang">Pang</a></td>
+            <td class="break" rowspan="6">Excursion</td>
+            <td class="online"><a href="#janzing">Janzing</a></td>
+            <td class="online"><a href="#silvestrov">Silvestrov</a></td>
+          </tr>
+          <tr>
+            <th class="time">14:35&ndash;15:05</th>
+            <td><a href="#mlotkowski">Młotkowski</a></td>
+            <td class="online"><a href="#weber">Weber</a></td>
+            <td class="online"><a href="#fan">Fan</a></td>
+            <td><a href="#gilliers">Gilliers</a></td>
+          </tr>
+          <tr class="break">
+            <th class="time">15:05&ndash;15:30</th>
+            <td colspan=2 class="break">Coffee Break</td>
+            <td colspan=2 class="break">Coffee Break</td>
+          </tr>
+          <tr>
+            <th class="time">15:30&ndash;16:00</td>
+            <td class="online"><a href="#ouerdiane">Ouerdiane</a></td>
+            <td class="online"><a href="#austern">Austern</a></td>
+            <td class="online"><a href="#hanin">Hanin</a></td>
+            <td class="online"><a href="#gray">Gray</a></td>
+          </tr>
+          <tr>
+            <th class="time">16:05&ndash;16:35</th>
+            <td class="online"><a href="#oberhauser">Oberhauser</a></td>
+            <td style="background: lightyellow;">Open problems / Poster Session</td>
+            <td style="background:linen;"  class="online"><a href="#pennington">Pennington</a><br/>(45 min.)</td>
+            <td class="online"><a href="#gabriel">Gabriel</a></td>
+          </tr>
+          <tr>
+            <th class="time">18:00&ndash;19:00</th>
+            <td><a href="#speicher_public">Speicher (public)</a></td>
+            <td rowspan=2></td>
+            <td rowspan=2></td>
+            <td rowspan=2></td>
+          </tr>
+          <tr>
+            <th class="time">19:00&ndash;21:00</th>
+            <td class="break">Dinner</td>
+            <td class="break">Conference Dinner</td>
+          </tr>
+        </table>
+        </div>
+      </div>
+      <div class="panel">
+        <h1>Abstracts</h1>
+        <h1>Public evening lecture</h1>
+        <div class="abstracts">
+          <div>
+          <h2 id="speicher_public">Roland SPEICHER <small><a href="#schedule">Top</a></small></h2>
+          <h3><i>Random matrices: non-commutative algebra, probability and analysis in action</i></h3>
+          <p>Non-commutative probability connects theoretical mathematics, like operator algebras, to very applied questions from wireless networks to machine learning. This bridge rests quite substantially on random matrices.</p>
+          <p>In this lecture I will try to give an idea of what all this means and why it is so exciting.</p>
+          <p>This talk is intended for a general academic audience with some interest in what is going on in mathematics, as well as for mathematicians who always wanted to know what free probability is about; or actually for anybody who wonders why we should liberate probability from its commutative chains, whether there are non-commutative dice, or why we should care about random matrices.</p>
+          </div>
+        </div>
+        <h1>Memorial lecture for Wilhelm von Waldenfels</h1>
+        <div class="abstracts">
+          <div>
+          <h2 id="schuermann">Michael SCHÜRMANN <small><a href="#schedule">Top</a></small></h2>
+          </div>
+        </div>
+
+        <h1>Keynote Speakers</h1>
+        <div class="abstracts">
+        <div>
+        <h2 id="accardi">Luigi ACCARDI <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>The quantum mechanics canonically associated to free probability (joint work with Tarek Hamdi and Yun Gang Lu)</i></h3>
+        <p>The algebraic approach to the theory of orthogonal polynomials shows that any classical random field (in particular classical random variable) with all moments defines its own quantum
+mechanics. Usual quantum mechanics corresponds to gaussian fields.
+
+It is therefore natural to ask oneself which is the structure of the different quantum mechanics associated to non--gaussian classical random fields.
+I will discuss the solution of this problem in the case of a single real valued classical random variable with semi--circle distribution.
+
+It is known that symmetric classical random variables have a canonically conjugated moment and the two are intertwined by a generalization, to arbitrary random variables, of the Gauss--Fourier transform widely used in white noise theory.
+
+It turns out that, for semi--circle classical random variables, the canonically conjugate moment is given by the Hilbert transform with respect to the semi--circle measure.
+This allows to express the momentum 1&mdash;parameter unitary group (evolution) and the free evolution (1&mdash;parameter unitary group generated by kinetic energy) in terms respectively of Bessel functions and of confluent hypergeometric series and to give the explicit action of these evolutions on the orthogonal polynomials.
+Although the Hilbert transform with respect to the semi--circle measure has been widely studied in the literature, the explicit structures of the 1&mdash;parameter unitary groups generated by it and its square were not known. This shows that the algebraic method can be used to obtain non-trivial analytical results.
+
+This is joint work with Yun Gang Lu.</p>
+        </div>
+
+        <div>
+        <h2 id="arizmendi">Octavio ARIZMENDI <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Atoms of freely independent random variables</i></h3>
+        <p>In this talk, we address the following question: For a given polynomial \(P(X_1,\dotsc,X_n)\) in multiple freely independent random variables, where are the atoms and what are the weights of these atoms in terms of \(X_1,\dotsc,X_n\). Before this work, the precise answer was known for general \(X\) and \(Y\) only for the sum \(X+Y\) and the product \(XY\): the atoms of \(X+Y\) and  \(XY\) can only appear at the sum \(\alpha+\beta\), and \(\alpha\beta\), where \(\alpha\), \(\beta\) are atoms for \(X,Y\) and the size of the atoms are known.  We show that a similar phenomena happens for any polynomial, and give the precise size of the atoms for some examples such as the commutator and anticommutator. This talk is based on an ongoing project with G. Cébron, S.Yin and R. Speicher.</p>
+        </div>
+
+        <div>
+        <h2 id="biane">Philippe BIANE <small><!--(<a href="https://www.dropbox.com/s/am4ba0u8f5ylwle/Biane%20-%20Schurmann_2021.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Non-linear free Lévy-Khinchine formula</i></h3>
+        <p>I give an explicit characterization of Nevanlinna functions associated to processes with free increments and homogeneous transition probabilities.</p>
+        </div>
+
+        <div>
+        <h2 id="friz">Peter FRIZ <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Unified cumulants and Magnus expansions</i></h3>
+        <p>We consider the stack of iterated integrals of semimartingales, a.k.a. signature. Their expectation, written in exponential form - following Bonnier-Oberhauser (2020) - we arrive at signature cumulants. These can be described - and recursively computed - in a way that can be seen as unification of previously unrelated pieces of mathematics, including Magnus (1954), Hairer's expansion of the  KPZ equation (2013), Lyons-Ni (2015), Gatheral and coworkers (2017 onwards), Lacoin-Rhodes-Vargas (2019). This is joint work with P. Hager and N. Tapia.</p>
+        </div>
+
+        <div>
+        <h2 id="gough">John GOUGH <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Non-commutative Möbius Transformations and Quantum Dynamical Evolutions</i></h3>
+        <p>We will describe a category of fractional linear (Möbius) Transformations associated with the coefficients of Hudson-Parthasarathy quantum stochastic evolutions. These transformations have a physical origin, which we will outline, and shows some surprising and unexpected links between pure mathematics, quantum physics and engineering.</p>
+        </div>
+
+        <div>
+        <h2 id="lehner">Franz LEHNER <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Cumulants, Hausdorff series and the Hopf algebras of symmetric functions</i></h3>
+        <p>The notion of cumulants was extended to monotone convolution by Hasebe and Saigo. Contrary to the classical, free and Boolean case, monotone independence does not satisfy the axiom of exchangeability and thus mixed cumulants do not vanish.</p>
+        <p>It does satisfy  the weaker axiom of spreadability and in joint work with T.Hasebe we found that instead of vanishing, the mixed cumulants involve the coefficients of the Campbell-Baker-Hausdorff series.</p>
+        <p>More recently Novelli and Thibon pointed out an abstract interpretation of these cumulant identities in terms of Eulerian idempotents in the Hopf algebra WQSym of word quasi-symmetric functions. We report on our joint effort to understand this correspondence.</p>
+        </div>
+
+        <div>
+        <h2 id="patras">Frédéric PATRAS <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Bialgebras in classical and non-commutative probability theory</i></h3>
+        <p>Based on j.w. with K. Ebrahimi-Fard. We survey results on the role on bialgebraic structures in classical and non-commutative probability and present some recent results on the subject that relate to their approach by means of "shuffle group laws".</p>
+        </div>
+
+        <div>
+        <h2 id="pennington">Jeffrey PENNINGTON <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Deep learning and operator-valued free probability: training and generalization dynamics in high dimensions </i></h3>
+        <p>One of the distinguishing characteristics of modern deep learning systems is that they typically employ neural network architectures that utilize enormous numbers of parameters, often in the millions and sometimes even in the billions. While this paradigm has recently inspired a broad research effort on the properties of large networks, relatively little work has been devoted to the fact that these networks are often used to model large complex datasets, which may themselves contain millions or even billions of constraints. In this talk, I will present a formalism based on operator-valued free probability that enables exact predictions of training and generalization performance in the high-dimensional regime in which both the dataset size and the number of features tend to infinity. The analysis provides one of the first analytically tractable models that captures the effects of early stopping, over/under-parameterization, explicit regularization, and which exhibits the characteristic double-descent curve.</p>
+        </div>
+
+        <div>
+        <h2 id="skeide">Michael SKEIDE <small><!--(<a href="https://www.dropbox.com/s/nrm0oay7asqzyhy/Skeide%20-%2021HGW.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Inductive Limits in Noncommutative Dynamics and Quantum Probability</i></h3>
+        <p>We illustrate how important, starting from Schürmanns's work on quantum lévy processes, inductive limit constructions have become in Noncommutative Dynamics and Quantum Probability.</p>
+        </div>
+
+        <div>
+        <h2 id="speicher">Roland SPEICHER <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Universality of free random variables: atoms for non-commutative rational functions</i></h3>
+        <p>Consider a tuple \((Y_1,\dots,Y_d)\) of normal operators in a tracial operator algebra setting with prescribed sizes of the eigenspaces for each \(Y_i\). We address the question what one can say about the sizes of the eigenspaces for any non-commutative polynomial \(P(Y_1,\dots,Y_d)\) in those operators? We show that for each polynomial \(P\) there are unavoidable eigenspaces, which occur in \(P(Y_1,\dots,Y_d)\) for any \((Y_1,\dots,Y_d)\) with the prescribed eigenspaces for the marginals. We will describe this minimal situation both in algebraic terms - where it is given by realizations via matrices over the free skew field and via rank calculations - and in analytic terms - where it is given by freely independent random variables with prescribed atoms in their distributions.
+
+The fact that the latter situation corresponds to this minimal situation allows us to draw many new conclusions about atoms in polynomials of free variables. In particular, we give a complete description of atoms in the free commutator and the free anti-commutator. Furthermore, our results do not only apply to polynomials, but much more general also to non-commutative rational functions.
+
+I will address in my talk the general aspects of this work. In the complementary talk by O. Arizmendi, concrete applications to polynomials in free variables will be given.
+
+All this is based on joint work with O. Arizmendi, G. Cebron, and S. Yin.</p>
+        </div>
+
+        <div>
+        <h2 id="wysoczanska-kula">Anna WYSOCZA&Nacute;SKA-KULA <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Lévy-Khinchine decomposition in the noncommutative framework</i></h3>
+        <p>Known since 1930ies, the Lévy-Khintchine formula provides a classification of Lévy processes on \(\mathbb{R}^n\) in terms of their generators. It shows how the generators are combinations of continuous (or Gaussian) parts and jump parts. In my talk I will discuss the problem of the existence of an analogous decomposition for Lévy processes on \(*\)-bialgebras and compact quantum groups.</p>
+        </div>
+        </div>
+
+        <h1>Invited talks</h1>
+        <div class="abstracts">
+
+        <div>
+        <h2 id="austern">Morgane AUSTERN <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Free central limit theorem for dynamical systems</i></h3>
+        <p>The free central-limit theorem, a fundamental theorem in free probability, states that empirical averages of freely independent random variables are asymptotically semi-circular. In this talk, we extend this theorem to general dynamical systems of operators that we define using a free random variable \(X\) and a group of \(*\)-automorphims describing the evolution of X. We introduce free mixing coefficients that measure how far a dynamical system is from being freely independent. Under conditions on those coefficients, we prove that the free central-limit theorem also holds for these processes and provide Berry-Essen bounds. Finally we draw connections with classical probability and random matrix theory with a series of examples.</p>
+        </div>
+
+        <div>
+        <h2 id="baraquin">Isabelle BARAQUIN <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>De Finetti Theorems</i></h3>
+        <p>In probability theory, de Finetti Theorem states that exchangeable random variables are conditionally independent. In this talk, we will present some similar results in noncommutative probability. After looking at the quantum case, we will study a de Finetti theorem in the dual unitary group.</p>
+        </div>
+
+        <div>
+        <h2 id="bhat">B. V. Rajarama BHAT <small><!--(<a href="https://www.dropbox.com/s/bp7dk0e2o6u8g1k/Bhat%20-%20logmodularGermany.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Lattices of logmodular algebras.</i></h3>
+        <p>A subalgebra \(\mathcal{A}\) of a \(C^*\)-algebra \(\mathcal{M}\) is logmodular (resp. has factorization) if the set \(\{a^*a; a\text{ is invertible with }a,a^{-1}\in\mathcal{A}\}\) is dense in \(\mathcal{M}_+^{-1}\) (resp. equal to \(\mathcal{M}_+^{-1}\)), where \(\mathcal{M}_+^{-1}\) is the set of all positive and invertible elements of \(\mathcal{M}\). There are large classes of well studied algebras, both in commutative and non-commutative settings, which are known to be logmodular. We show that the lattice of projections in a von Neumann algebra \(\mathcal{M}\) whose ranges are invariant under a logmodular algebra in \(\mathcal M\), is a commutative subspace lattice. Further, if \(\mathcal{M}\) is a factor then this lattice is a nest. As a special case, it follows that all reflexive (in particular, completely distributive CSL) logmodular subalgebras of type I factors are nest algebras, thus answering a question of Paulsen and Raghupathi [Trans. Amer. Math. Soc.,363 (2011) 2627-2640]. This is a joint work with Manish Kumar.</p>
+        </div>
+
+        <div>
+        <h2 id="bozejko">Marek BOŻEJKO <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Remarks on Generalized Gaussian processes and positive definite functions on some Weyl (Coxeter) groups</i></h3>
+        <p>In my talk I will present the following topics:
+        <ol>
+          <li>Strong connections between generalized Gaussian processes and some class of posi- tive definite functions on permutations groups.</li>
+          <li>Type B Fock spaces and new Gaussian processes of type B, relations with q-Meixner- Pollaczek polynomials and Meixner probability measures like \(1/\cosh\).</li>
+          <li>Thoma representation of central positive definite functions on Coxeter groups of type A and B and new classes of generalized Gaussian processes.</li>
+          <li>Open problems.</li>
+        </ol>
+        </p>
+        </div>
+
+        <div>
+        <h2 id="chevyrev">Ilya CHEVYREV <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Fourier transform on path space</i></h3>
+        <p>The signature, also known as the Chen-Fliess series, is a powerful method to encode information about unparameterized paths. In particular, it has been known for some time that the signature leads to a non-commutative Fourier transform on path-space defined in terms of solutions of ODEs taking values in unitary groups. I will review this topic, including its application to the moment problem and recent extensions to branched (non-geometric) rough paths. I will also discuss some open problems such as a version of Bochner's theorem and the possibility of an inverse Fourier transform.</p>
+        </div>
+
+        <div>
+        <h2 id="fagnola">Franco FAGNOLA <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Gaussian Quantum Markov Semigroups</i></h3>
+        <p>We consider the most general Gaussian quantum Markov semigroup on a finite-mode Fock space, discuss its construction from the generalized GKSL representation of the generator, irreducibility and its relationship with Hormander type conditions on commutators, characterization of the decoherence-free subalgebra and normal invariant states.</p>
+        </div>
+
+        <div>
+        <h2 id="fan">Zhou FAN <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Approximate Message Passing algorithms for rotationally invariant matrices</i></h3>
+        <p>Approximate Message Passing (AMP) algorithms have been used to study high-dimensional asymptotic phenomena in a variety of statistical applications. I will describe a generalization of AMP algorithms from random matrices with i.i.d. entries to matrices satisfying orthogonal rotational invariance in law. The forms and asymptotic characterizations of these algorithms were first derived non-rigorously by Opper, Çakmak, and Winther in the context of solving the Parisi-Potters TAP equations for orthogonally-invariant spin glass models, and they depend on the free cumulants of the spectral law. I will discuss a rigorous proof of these results using combinatorial ideas from free probability theory, and describe some applications to Principal Components Analysis in a Bayesian statistical context.</p>
+        </div>
+
+        <div>
+        <h2 id="gabriel">Franck GABRIEL <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Random Features and Kernel Ridge Regression: Effective ridge and Kernel Alignment Risk Estimator</i></h3>
+        <p>Classical random matrix techniques can be used to investigate Gaussian random features regression and kernel ridge regression. In Gaussian Random Features, one looks for a linear combination of a finite number of random processes which interpolates the data point. We show that the expected predictor is close to a Kernel Ridge Regression with a larger ridge: this is the effective ridge which implies an implicit regularization of finite sampling in random feature models. In Kernel Ridge Regression, random matrix techniques allow us to obtain a (training data-dependent) estimator of the expected risk: the KARE.</p>
+        </div>
+
+        <div>
+        <h2 id="gilliers">Nicolas GILLIERS <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Multi-faced probability theory and Loday-type algebras</i></h3>
+        <p>In this talk, I will mainly focus on the development of dendriform calculus to two-faced moments-cumulants relations for bi-free, bi-boolean and type I monotone independence.  introduced this past years by Voiculescu, Skoufranis and Guo. The Operator-valued case will also be discussed.  Time permitting, I will also explain how this approach can help to generate new commutative and noncommutative additive convolutions in two faced probability.</p>
+        <p>Joint work with Joscha Diehl, Kurusch Ebrahimi Fard, Malte Gerhold.</p>
+        </div>
+
+        <div>
+        <h2 id="gohm">Rolf GOHM <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Semi-cosimplicial Hilbert Spaces</i></h3>
+        <p>In a recent paper [1] we established semi-cosimplicial objects in the category of non-commutative probability spaces as the algebraic structure underlying the distributional symmetry 'spreadability' (invariance of distribution if we go to subsequences).  There is an interesting connection to representations of braid groups.  One way to get a better understanding of the open questions in this approach is to simplify the category and to consider Hilbert spaces. In this talk we report about some insights in this direction. This is ongoing joint work with D.G. Evans and C. Koestler.</p>
+        <p>[1] D.G.Evans, R. Gohm, C.Koestler, Semi-Cosimplicial Objects and Spreadability, Rocky Mountain Journal of Mathematics, Volume 47, Number 6 (2017), 1839-1873</p>
+        </div>
+
+        <div>
+        <h2 id="gray">Steven GRAY <small><!--(<a href="https://www.dropbox.com/s/pbgahf5j75j6n3f/Gray%20-%20Noncommutative%20algebra%2C%20probability%20and%20analysis%20in%20action%2024-9-21.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Networks of Chen-Fliess series with applications to cybersecurity</i></h3>
+        <p>The behavior of a network of interacting nonlinear input-output systems is naturally described by the dynamics of a system of interconnected Chen-Fliess series evolving on a Lie group. Given any two nodes in the network, there is a well defined noncommutative generating series describing the input-output map between the nodes. In this talk, it is shown how an adversary could compromise the function of selected nodes without being detected elsewhere in the network. Key to the design of such an attack is to exploit a certain Hopf algebra implicit in this structure to ensure that communications between monitored nodes are effectively blocked.</p>
+        </div>
+
+        <div>
+        <h2 id="janzing">Dominik JANZING <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Non-statistical notions of independence in causal discovery and their relation to free independence</i></h3>
+        <p>To infer whether statistical dependence between two variables \(X\) and \(Y\) is due to \(X\) causing \(Y\), \(Y\) causing \(X\), or a common cause of both from passive observations is a hard problem in causal discovery.  Some recent approaches are motivated by the postulate that for \(X\) causing \(Y\), the marginal \(P(X)\) and the conditional \(P(Y\mid X)\) correspond to ‘independent’ mechanisms of nature and therefore contain no information about each other. The formalization of ‘no information’ is, however, challenging. One approach uses algorithmic independence [1,2], which is unfortunately undecidable. Therefore, practical approaches need to rely on computable measures of dependence.
+For linear models with multivariate X and Y, for instance, \(P(X)\) and \(P(Y\mid X)\) are represented by matrices and vectors that should show ‘generic orientation’ relative to each other in a sense similar to free independence [3,4,5], although the use of the latter in causal inference in still at a rudimentary level.</p>
+        <p>
+[1] Janzing, Schölkopf: Causal inference using the algorithmic Markov condition,  IEEE TIT 2012
+[2] Lemeire, Janzing: Replacing causal faithfulness with algorithmic independence of conditionals. OSID 2013
+[3] Zscheischler, Janzing, Zhang: Testing whether linear equations are causal: a free probability theory approach, UAI 2011.
+[4] Janzing, Schölkopf, B. Detecting confounding in multivariate linear models. JCI 2017.
+[5] Janzing, Schölkopf: Detecting non-causal artifacts in multivariate linear regression models, ICML 2018.
+</p>
+        </div>
+
+        <div>
+        <h2 id="hanin">Boris HANIN <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Spectral Theory for Products of Many Large Gaussian Matrices</i></h3>
+        <p>Let \(X_{n,L}\) be an i.i.d. product of \(L\) real Gaussian matrices of size \(n \times n\). In this talk, I will explain some recent joint work with G. Paouris (arXiv:2005.08899) about a non-asymptotic analysis of the singular values of \(X_{n,L}\). I will begin by giving some intuition and motivation for studying such matrix products. Then, I will explain two new results. The first gives a rate of convergence for the global distribution of singular values of \(X_{n,L}\) to the so-called Triangle Law in the limit where \(n, L\) tend to infinity. The second is a kind of quantitative version of the multiplicative ergodic theorem, giving estimates at finite but large L on the distance between the joint distribution of all Lyapunov exponents of \(X_{n,L}\) and appropriately normalized independent Gaussians in the near-ergodic regime when \(L\) is much bigger than \(n\).</p>
+        </div>
+
+        <div>
+        <h2 id="hasebe">Takahiro HASEBE <small><!--(<a href="https://www.dropbox.com/s/nzaq7ws0qcmvnwh/Hasebe%20-%2020210920%20Greifswald.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>The spectra of principal minor of rotationally invariant Hermitian random matrices</i></h3>
+        <p> We prove a concentration phenomenon on the empirical eigenvalue distribution (EED) of the principal minor in a random hermitian matrix whose distribution is invariant under unitary conjugacy. More precisely, if the EED of the whole matrix converges to some deterministic probability measure \(\mu\), then its fluctuation from the EED of the principal minor, after a rescaling, concentrates at the Rayleigh measure (in general, a Schwartz distribution) associated with \(\mu\) by the Markov--Krein correspondence. For the proof, we use the moment method with Weingarten calculus and free probability. This is a joint work with Katsunori Fujie.</p>
+        </div>
+
+        <div>
+        <h2 id="koestler">Claus KÖSTLER <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Markovianity and the Thompson Monoid \(F+\)</i></h3>
+        <p>"Partial spreadability" is a new distributional invariance principle for sequences of random variables. This principle is closely linked to the representation theory of the Thompson monoid \(F^+\) and generalizes Ryll-Nardzewski’s extended de Finetti theorem for infinite sequences of stationary conditionally independent random variables to infinite sequences of stationary conditionally Markovian random variables. My talk introduces to this new distributional invariance principle from the viewpoint of noncommutative probability.</p>
+        <p>Reference: Claus Koestler, Arundathi Krishnan and Stephen J. Wills: Markovianity and the Thompson Monoid F+, arXiv:2009.14811.</p>
+        </div>
+
+        <div>
+        <h2 id="lenczewski">Romuald LENCZEWSKI <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Motzkin path approach to noncommutative probability</i></h3>
+        <p>I intend to discuss a new unified framework in noncommutative probability that allows us to look at functionals (products, cumulants, convolutions) inherent to different notions of independence together rather than separately. It is based on constructing a family of product functionals labeled by Motzkin paths. These functionals play the role of a generating set of the space of product functionals in which the boolean product corresponds to constant Motzkin paths and the free product corresponds to all Motzkin paths. This study leads to a `Motzkin path approach to noncommutative probability'.</p>
+        </div>
+
+        <div>
+        <h2 id="mlotkowski">Wojciech MŁOTKOWSKI <small><!--(<a href="https://www.dropbox.com/s/nw316dyiaqvtswu/Mlotkowski%20-%20greifswald2021rational.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Probability distributions with rational free \(R\)-transform</i></h3>
+        <p>I am going to study the class \(\mathcal{M}_{\mathrm{ratio}}\) of these probability distributions for which the free \(R\)-transform is a rational function. This class is closed under the additive free convolution, additive free powers and under monotone convolution.  I will provide a sufficient condition which implies that a given rational function \(R(w)\) is the free \(R\)-transform of a probability distribution.  Several examples will be given.</p>
+        </div>
+
+        <div>
+        <h2 id="oberhauser">Harald OBERHAUSER <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Non-linear Independent Component Analysis and Signature Cumulants</i></h3>
+        <p>Recovering a multidimensional process from indirect observations of this process is a classical problem in signal processing that has many applications (e.g. the "cocktail party problem"). When the observation is a linear transformation of the underlying process, this problem is well understood, but much less is known for the generic case of nonlinear transformations. I will discuss how ideas from rough paths that embed a probability measure on the space of paths (the law of a stochastic process) into the tensor algebra over the state space of the stochastic process can be combined with recent contrastive learning approaches to nonlinear ICA. In particular, so-called signature cumulants, provide a graded, parsimonious quantification of dependency over time and space of stochastic processes, come with a rich algebraic structure, and play a central part in this approach. Joint works with Alexander Schell and Patric Bonnier.</p>
+        </div>
+
+        <div>
+        <h2 id="ouerdiane">Habib OUERDIANE <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Generalized white noise operators and applications to the quantum heat equation</i></h3>
+        <p>In this talk, we develop the theory of operators defined on infinite dimensional holomorphic functions. Then we give a characterization theorem between this class of operators and their symbols. As application we give an explicit solution of some linear quantum white noise differential equations by applying the convolution calculus on a suitable distribution spaces. In particular we obtain an integral representation for the solution of the quantum heat equation.</p>
+        </div>
+
+        <div>
+        <h2 id="pang">Amy PANG <small><!--(<a href="https://www.dropbox.com/s/dg1a6qfss0lbst0/hopfchainstalk2021_ncapaa.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Card-shuffling and other Markov chains from Hopf algebras</i></h3>
+        <p>In this talk, I will explain how the transition probabilities, in the well-known riffle-shuffle and top-to-random shuffle, are the coefficients of certain coproduct-then-product operators on the shuffle Hopf algebra. We have a full basis of eigenvectors of these operators, which give the expected value of certain statistics under repeated shuffles. These eigenvector formulas apply to arbitrary combinatorial Hopf algebras, allowing us to analogously study new "shuffling" Markov chains on other combinatorial objects, such as trees or graphs.</p>
+        </div>
+
+        <div>
+        <h2 id="silvestrov">Sergei SILVESTROV <small><a href="#schedule">Top</a></small></h2>
+        <h3><i>Hom-algebra structures and quasi hom-Lie algebras</i></h3>
+        <p>In this talk, introduction and some open problems and open directions about hom-algebra structures will be presented.</p>
+        <p>These interesting and rich algebraic structures appear for example when discretizing the differential calculus as well as in constructions of differential calculus on non-commutative spaces. Quasi Lie algebras encompass in a natural way the Lie algebras, Lie superalgebras, color Lie algebras, hom-Lie algebras, q-Lie algebras and various algebras of discrete and twisted vector fields arising for example in connection to algebras of twisted discretized derivations, Ore extension algebras, q-deformed vertex operators structures and q-deferential calculus, multi-parameter deformations of associative and non-associative algebras, one-parameter and multi-parameter deformations of infinite-dimensional Lie algebras of Witt and Virasoro type, multi-parameter families of quadratic and almost quadratic algebras that include for special choices of parameters algebras appearing in non-commutative algebraic geometry, universal enveloping algebras of Lie algebras, Lie superalgebras and color Lie algebras and their deformations.  Common unifying feature for all these algebras is appearance of some twisted generalizations of Jacoby identities providing new structures of interest for investigation from the side of associative algebras, non-associative algebras, generalizations of Hopf algebras, non-commutative differential calculi beyond usual differential calculus and generalized quasi-Lie algebra central extensions and Hom-algebra formal deformations and co-homology. Hom-algebra generalizations of Nambu algebras, associative algebras and Lie algebras to n-ary structures are also actively studied and some constructions and results on n-ary hom-Lie algebras will be presented.</p>
+        </div>
+
+        <div>
+        <h2 id="sinha">Kaylan B. SINHA <small><!--(<a href="https://www.dropbox.com/s/y23s7ow8ao7rpgf/Sinha%20-%20Statistical%20Decision%20Theory_KBS_Latest.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Statistical  Decision Theory in Non-commutative Domain</i></h3>
+        <p>The (classical) Decision Theory, founded by Wald (1950), more recent account can be seen in the book of Ferguson, (1967) was first adapted in the non-commutative domain by Holevo in 1974. This is an attempt to review the theory and study some further extensions into a fully quantum domain.</p>
+        </div>
+
+        <div>
+          <h2 id="skalski">Adam SKALSKI <small><!--(<a href="https://www.dropbox.com/s/3mugnaaapzk7gne/Skalski%20-%20Greifswald2021Skalski.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Gaussian states on quantum groups</i></h3>
+        <p>The notion of a Gaussian state on a compact quantum group based on the idea of `second order' or `quadratic' generators was proposed by Michael Schürmann in 1980s. I will discuss some examples of such states and their classification, and then focus on the concept of a Gaussian part of a compact quantum group and its relationship to various quantum versions of connectedness. Possible extensions beyond the compact context will be also indicated.</p>
+        </div>
+
+        <div>
+        <h2 id="weber">Moritz WEBER <small><!--(<a href="https://www.dropbox.com/s/u5xrekrflakrx2u/Weber%20-%20VortragGW2021WeberMang.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Hochschild cohomology for easy quantum groups</i></h3>
+        <p>Extending the work of Bichon-Franz-Gerhold, Das-Franz-Kula-Skalski and others, we compute the Hochschild cohomological dimensions (with trivial coefficients) of easy quantum groups. We present a complete list for \(H^1\) and we sketch some ideas for \(H^2\). This is joint work in progress with Alexander Mang.</p>
+        </div>
+
+        <div>
+          <h2 id="wills">Stephen WILLS <small><!--(<a href="https://www.dropbox.com/sh/kws1mh3q1rxqxcu/AAAWWIz3W7t42QwoxI-OGB4ha?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>The right Hudson-Parthasarathy Quantum Stochastic Differential Equation</i></h3>
+        <p>When studying Hudson-Parthasarathy QSDEs, whose solutions will be operator-valued quantum stochastic cocycles, one has a choice as to whether to put the coefficient on the left or the right of the process. In general the solution will depend nontrivially on this choice. For a bounded coefficient there are standard tools to transform from one version to the other. For an unbounded coefficient the situation is more tricky: the left equation (with the coefficient on the right!) is analytically easier, but it has been argued that the right equation (with coefficient on the left) is the correct equation from a physical point of view. The technical issue one must overcome is to make good sense of certain operator products. I will outline a method that supplies reasonable sufficient conditions to do this, based on results from minimal quantum dynamical semigroups.</p>
+        </div>
+
+        <div>
+          <h2 id="wysoczanski">Janusz WYSOCZA&Nacute;SKI <small><!--(<a href="https://www.dropbox.com/s/0p1fkng4zzv88sb/Wysocza%C5%84ski%20-%20Greifswald%202021%20JWys.pdf?dl=0">slides</a>) --><a href="#schedule">Top</a></small></h2>
+        <h3><i>Law of Small Numbers for bm-independence</i></h3>
+        <p></p>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
