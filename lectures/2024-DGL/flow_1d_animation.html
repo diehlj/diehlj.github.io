@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linear Flow Evolution in 1D</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.24.2/plotly.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        #plot {
+            width: 100%;
+            height: 600px;
+        }
+        .equation {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Linear Flow Evolution in 1D</h1>
+        <div id="plot"></div>
+        <div class="equation">
+            \[\dot Y_t = -0.5 Y_t\]
+        </div>
+    </div>
+
+<script>
+    // Parameters
+    const a = -0.5;  // coefficient for the linear equation
+    const n_points = 15;  // number of initial points
+    const x0_points = numeric.linspace(-2, 2, n_points);
+    const t = numeric.linspace(0, 4, 200);
+
+    // Calculate solutions
+    const solutions = [];
+    for (let x0 of x0_points) {
+        solutions.push(t.map(t => x0 * Math.exp(a * t)));
+    }
+
+    // Create the base traces (initial points)
+    const data = x0_points.map((x0, i) => {
+        const color = `rgb(${Math.floor(255*i/(n_points-1))}, 0, ${255-Math.floor(255*i/(n_points-1))})`;
+        return {
+            x: [0],
+            y: [x0],
+            mode: 'lines+markers',
+            line: {
+                color: color,
+                width: 2
+            },
+            marker: {
+                size: 8,
+                color: color
+            },
+            showlegend: false
+        };
+    });
+
+    // Create frames for animation
+    const frames = [];
+    for (let k = 1; k < t.length; k++) {
+        const frame = {
+            data: x0_points.map((x0, i) => ({
+                x: t.slice(0, k+1),
+                y: solutions[i].slice(0, k+1)
+            })),
+            name: `frame${k}`
+        };
+        frames.push(frame);
+    }
+
+    // Layout configuration
+    const layout = {
+        title: 'Evolution of Linear Flow',
+        xaxis: {
+            title: 'Time t',
+            range: [-0.1, 4.1],
+            zeroline: true,
+            zerolinewidth: 1,
+            zerolinecolor: 'black',
+            gridcolor: 'lightgray'
+        },
+        yaxis: {
+            title: 'Position $Y_t$',
+            range: [-2.2, 2.2],
+            zeroline: true,
+            zerolinewidth: 1,
+            zerolinecolor: 'black',
+            gridcolor: 'lightgray'
+        },
+        plot_bgcolor: 'white',
+        shapes: [{
+            type: 'line',
+            x0: -0.1,
+            x1: 4.1,
+            y0: 0,
+            y1: 0,
+            line: {
+                color: 'black',
+                width: 1,
+                dash: 'dash'
+            }
+        }],
+        updatemenus: [{
+            type: 'buttons',
+            showactive: false,
+            x: 0.1,
+            y: 1.1,
+            buttons: [{
+                label: 'Play',
+                method: 'animate',
+                args: [null, {
+                    frame: {duration: 20, redraw: true},
+                    fromcurrent: true,
+                    mode: 'immediate'
+                }]
+            }, {
+                label: 'Pause',
+                method: 'animate',
+                args: [[null], {
+                    frame: {duration: 0, redraw: false},
+                    mode: 'immediate'
+                }]
+            }]
+        }],
+        sliders: [{
+            currentvalue: {prefix: 'Time: '},
+            pad: {t: 50},
+            len: 0.9,
+            x: 0.1,
+            y: 0,
+            steps: frames.map((_, i) => ({
+                method: 'animate',
+                label: t[i].toFixed(2),
+                args: [[`frame${i}`], {
+                    mode: 'immediate',
+                    frame: {duration: 0, redraw: true},
+                    transition: {duration: 0}
+                }]
+            }))
+        }]
+    };
+
+    // Create the plot
+    Plotly.newPlot('plot', data, layout).then(function() {
+        Plotly.addFrames('plot', frames);
+    });
+</script>
+</body>
+</html>

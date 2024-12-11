@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flow Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.24.2/plotly.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        #plot {
+            width: 100%;
+            height: 800px;
+        }
+        .equation {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        .equation-system {
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flow Visualization</h1>
+        <div id="plot"></div>
+        <div class="equation-system">
+            <div class="equation">
+                \[
+                \begin{aligned}
+                \dot Y^{(1)} &= Y^{(1)}\cdot (Y^{(1)}-1)\cdot Y^{(2)}\cdot (Y^{(2)}-1)\cdot f(Y^{(1)},Y^{(2)}) \\
+                \dot Y^{(2)} &= Y^{(1)}\cdot (Y^{(1)}-1)\cdot Y^{(2)}\cdot (Y^{(2)}-1)\cdot g(Y^{(1)},Y^{(2)})
+                \end{aligned}
+                \]
+            </div>
+            <div class="equation">
+                \[
+                \text{where } f(y) = -(y^{(2)}-0.5) \text{ and } g(y) = (y^{(1)}-0.5)
+                \]
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Numerical integration function (RK4)
+        function rk4(f, y0, t) {
+            const n = t.length;
+            const d = y0.length;
+            const y = Array(n).fill().map(() => Array(d).fill(0));
+            y[0] = y0;
+            
+            for (let i = 0; i < n-1; i++) {
+                const h = t[i+1] - t[i];
+                const k1 = f(y[i], t[i]);
+                const k2 = f(y[i].map((yj, j) => yj + k1[j]*h/2), t[i] + h/2);
+                const k3 = f(y[i].map((yj, j) => yj + k2[j]*h/2), t[i] + h/2);
+                const k4 = f(y[i].map((yj, j) => yj + k3[j]*h), t[i] + h);
+                
+                y[i+1] = y[i].map((yj, j) => yj + (k1[j] + 2*k2[j] + 2*k3[j] + k4[j])*h/6);
+            }
+            return y;
+        }
+
+        // Define the ODE system
+        function system(y, t) {
+            const x = y[0], y1 = y[1];
+            const f = -(y1 - 0.5);
+            const g = (x - 0.5);
+            const common = x * (x-1) * y1 * (y1-1);
+            return [common * f, common * g];
+        }
+
+        // Create grid points
+        const n = 15;
+        const x = numeric.linspace(0, 1, n);
+        const y = numeric.linspace(0, 1, n);
+        const grid_points = [];
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                grid_points.push([x[i], y[j]]);
+            }
+        }
+
+        // Time points
+        const t = numeric.linspace(0, 20, 100);
+
+        // Calculate trajectories
+        const trajectories = grid_points.map(p0 => rk4(system, p0, t));
+
+        // Create colored grid cells
+        function createGridCells(timeIndex) {
+            const cells = [];
+            
+            for (let i = 0; i < n-1; i++) {
+                for (let j = 0; j < n-1; j++) {
+                    // Get the four corners of each grid cell
+                    const idx1 = i * n + j;
+                    const idx2 = i * n + (j + 1);
+                    const idx3 = (i + 1) * n + (j + 1);
+                    const idx4 = (i + 1) * n + j;
+                    
+                    const quad = [
+                        trajectories[idx1][timeIndex],
+                        trajectories[idx2][timeIndex],
+                        trajectories[idx3][timeIndex],
+                        trajectories[idx4][timeIndex],
+                        trajectories[idx1][timeIndex] // Close the polygon
+                    ];
+
+                    cells.push({
+                        x: quad.map(p => p[0]),
+                        y: quad.map(p => p[1]),
+                        fill: 'toself',
+                        fillcolor: `rgb(${Math.floor(255*i/(n-2))}, ${Math.floor(255*j/(n-2))}, 255)`,
+                        line: {color: 'rgba(0,0,0,0.2)', width: 1},
+                        showlegend: false,
+                        hoverinfo: 'skip',
+                        type: 'scatter'
+                    });
+                }
+            }
+            return cells;
+        }
+
+        // Create animation frames
+        const frames = [];
+        for (let k = 0; k < t.length; k++) {
+            const gridCells = createGridCells(k);
+            const frame = {
+                data: [
+                    ...gridCells,
+                    {
+                        x: trajectories.map(traj => traj[k][0]),
+                        y: trajectories.map(traj => traj[k][1]),
+                        mode: 'markers',
+                        marker: {
+                            size: 2,
+                            color: 'black'
+                        },
+                        showlegend: k === 0,
+                        name: 'Grid points'
+                    }
+                ],
+                name: `t=${t[k].toFixed(2)}`
+            };
+            frames.push(frame);
+        }
+
+        // Create initial plot
+        const initialCells = createGridCells(0);
+        const data = [
+            ...initialCells,
+            {
+                x: trajectories.map(traj => traj[0][0]),
+                y: trajectories.map(traj => traj[0][1]),
+                mode: 'markers',
+                marker: {
+                    size: 2,
+                    color: 'black'
+                },
+                name: 'Grid points'
+            }
+        ];
+
+        const layout = {
+            title: 'Flow',
+            xaxis: {
+                title: '$Y^{(1)}_t$',
+                range: [-0.05, 1.05]
+            },
+            yaxis: {
+                title: '$Y^{(2)}_t$',
+                range: [-0.05, 1.05],
+                scaleanchor: 'x',
+                scaleratio: 1
+            },
+            updatemenus: [{
+                type: 'buttons',
+                showactive: false,
+                x: 0.1,
+                y: 1.1,
+                buttons: [{
+                    label: 'Play',
+                    method: 'animate',
+                    args: [null, {
+                        frame: {duration: 50, redraw: true},
+                        fromcurrent: true,
+                        mode: 'immediate'
+                    }]
+                }, {
+                    label: 'Pause',
+                    method: 'animate',
+                    args: [[null], {
+                        frame: {duration: 0, redraw: false},
+                        mode: 'immediate'
+                    }]
+                }]
+            }],
+            sliders: [{
+                currentvalue: {prefix: 'Time: '},
+                pad: {t: 50},
+                len: 0.9,
+                x: 0.1,
+                y: 0,
+                steps: frames.map((frame, i) => ({
+                    method: 'animate',
+                    label: `${t[i].toFixed(2)}`,
+                    args: [[frame.name], {
+                        mode: 'immediate',
+                        frame: {duration: 0, redraw: true},
+                        transition: {duration: 0}
+                    }]
+                }))
+            }]
+        };
+
+        Plotly.newPlot('plot', data, layout).then(function() {
+            Plotly.addFrames('plot', frames);
+        });
+    </script>
+</body>
+</html>
